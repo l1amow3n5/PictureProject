@@ -1,7 +1,7 @@
 package pixLab.classes;
 public class IntArrayWorkerTester
 {
-  /** method to test setMatrix */
+  /* method to test setMatrix */
   public static void testSetMatrix()
   {
     IntArrayWorker worker = new IntArrayWorker();
@@ -22,18 +22,18 @@ public class IntArrayWorkerTester
     worker.print();
   }
   
-  /** Method to test getCount*/
-//  public static void testGetCount()
-//  {
-//    IntArrayWorker worker = new IntArrayWorker();
-//    int[][] nums = new int[3][4];
-//    worker.setMatrix(nums);
-//    worker.fillPattern1();
-//    int count = worker.getCount(1);
-//    System.out.println("Count should be 6 and count is " + count);
-//  }
+  /* Method to test getCount */ 
+  public static void testGetCount()
+  {
+    IntArrayWorker worker = new IntArrayWorker();
+    int[][] nums = new int[3][4];
+    worker.setMatrix(nums);
+    worker.fillPattern1();
+    int count = worker.getCount(1);
+    System.out.println("Count should be 3 and count is " + count);
+   }
   
-  /** Method to test getTotal */
+  /* Method to test getTotal */
   public static void testGetTotal()
   {
     IntArrayWorker worker = new IntArrayWorker();
