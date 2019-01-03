@@ -30,7 +30,7 @@ public class IntArrayWorkerTester
     worker.setMatrix(nums);
     worker.fillPattern1();
     int count = worker.getCount(1);
-    System.out.println("Count should be 3 and count is " + count);
+    System.out.println("Count should be 6 and count is " + count);
    }
   
   /* Method to test getTotal */
@@ -96,7 +96,7 @@ public class IntArrayWorkerTester
   {
     testSetMatrix();
     testFillPattern1();
-    //testGetCount(); 
+    testGetCount(); 
     testGetTotal();
     testGetTotalNested();
     //testGetLargest();
