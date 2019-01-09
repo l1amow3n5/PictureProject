@@ -7,6 +7,7 @@ import java.text.*;
 import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 
+
 /**
  * A class that represents a picture.  This class inherits from 
  * SimplePicture and allows the student to add functionality to
@@ -114,6 +115,101 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  /*
+  public void randomize (int startRow, int startCol, int endRow, int endCol)
+  {
+	  Pixel [] pixels = this.getPixels2D();
+	  
+	  for (int row = startRow; row < endRow; row ++)
+	  {
+		  for (int col = startCol; row < endCol; col++)
+		  {
+			  int randomNumber = (int) (Math.random() * 10);
+				if (randomNumber % 7 == 0)
+				{
+					pixels[row][col].setColor(randomColor());
+				}
+		  }
+	  }
+  }
+  */
+  public void chromakey (Picture replacement, Color changeColor)
+  {
+	  Pixel [][] mainPixels = this.getPixels2D();
+	  Pixel [][] replacementPixels = replacement.getPixels2D();
+	  
+	  for (int row = 0; row < mainPixels.length; row++)
+	  {
+		  for (int col = 0; col < mainPixels[0].length; col++)
+		  {
+			  if (mainPixels[row][col].colorDistance(changeColor) < 80)
+			  {
+				  mainPixels[row][col].setColor(replacementPixels[row][col].getColor());
+			  }
+		  }
+	  }
+  }
+  
+  public void randomColor()
+  {
+	  int randomInt = (int)(Math.random() * 3);
+	  
+	  if(randomInt == 0)
+	  {
+		  Pixel[][] pixels = this.getPixels2D();
+		  for (Pixel [] rowArray : pixels)
+		  {
+			  for (Pixel pixelObj : rowArray)
+			  {
+				  pixelObj.setBlue(0);			  
+			  }
+		  }
+	  }
+	  else if(randomInt == 1)
+	  {
+		  Pixel[][] pixels = this.getPixels2D();
+		  for (Pixel [] rowArray : pixels)
+		  {
+			  for (Pixel pixelObj : rowArray)
+			  {
+				  pixelObj.setRed(0);			  
+			  }
+		  }
+	  }
+	  else if(randomInt == 2)
+	  {
+		  Pixel[][] pixels = this.getPixels2D();
+		  for (Pixel [] rowArray : pixels)
+		  {
+			  for (Pixel pixelObj : rowArray)
+			  {
+				  pixelObj.setGreen(0);		  
+			  }
+		  }
+	  }
+  }
+  
+  public void glitchy()
+  {
+	  Pixel [][] pixels = getPixels2D();
+	  int center = (int)(Math.random() * 639);
+	  Pixel leftPixel = null;
+	  Pixel rightPixel = null;
+	  
+	  for (int row = (int)(Math.random() * 479); row < (int)(Math.random() * 479); row++)
+	    {
+	      for (int col = (int)(Math.random() * 639) ;col < center; col++)
+	      {
+	        
+	        leftPixel = pixels[row][col];      
+	        rightPixel = pixels[row][center - col + center];
+	        rightPixel.setColor(leftPixel.getColor());
+	      }
+	    }
+	  randomColor();
+  }
+
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -158,7 +254,7 @@ public class Picture extends SimplePicture
     int mirrorPoint = 276;
     Pixel leftPixel = null;
     Pixel rightPixel = null;
-    int count = 0;
+   // int count = 0;
     Pixel[][] pixels = this.getPixels2D();
     
     // loop through the rows
@@ -181,7 +277,7 @@ public class Picture extends SimplePicture
 	  int mirrorPoint = 334;
 	  Pixel leftPixel = null;
 	  Pixel rightPixel = null;
-	  int count = 0;
+	  //int count = 0;
 	  Pixel [][] pixels = this.getPixels2D();
 	  
 	  for (int row = 231; row < 324; row ++)
