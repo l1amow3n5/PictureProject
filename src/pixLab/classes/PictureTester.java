@@ -29,6 +29,19 @@ public class PictureTester
     beach.explore();
   }
   
+  public static void testSteganography()
+  {
+	  Picture source = new Picture("BigMountain.jpg");
+
+	  Picture message = new Picture("BlackAndWhiteTwo.jpg");
+	  source.explore();
+	  message.explore();
+	  source.hidePicture(message);
+	  source.explore();
+	  source.revealPicture();
+	  source.explore();
+  }
+  
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -76,7 +89,8 @@ public class PictureTester
     // and comment out the ones you don't want
     // to run
     //testZeroBlue();
-	  testChromakey();
+//	  testChromakey();
+	  testSteganography();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
