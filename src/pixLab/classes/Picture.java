@@ -433,7 +433,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("BigMountain.jpg");
 //    Picture seagull = new Picture("seagull.jpg");
 //    seagull.explore();
 //    seagull.mirrorGull();

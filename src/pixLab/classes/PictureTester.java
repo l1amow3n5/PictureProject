@@ -13,11 +13,11 @@ public class PictureTester
 	
 	public static void testChromakey()
 	{
-		Picture source = new Picture("butterfly in the sky I can fly twice as high.jpg");
+		Picture source = new Picture("LavarBurton.jpg");
 		Picture background = new Picture("BigMountain.jpg");
 		source.explore();
 		background.explore();
-		source.chromakey(background, new Color(224, 201, 185));
+		source.chromakey(background, Color.WHITE);
 		source.explore();
 	}
   /** Method to test zeroBlue */
